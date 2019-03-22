@@ -5,7 +5,7 @@
 <@c.page>
 Add new user
 
-${message}
+<#--${message}-->
 
 <@l.login "/registration" />
 </@c.page>
