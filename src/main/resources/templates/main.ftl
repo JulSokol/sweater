@@ -17,18 +17,18 @@
 </div>
 <div>Список сообщений</div>
 <form method="get" action="/main">
-    <input type="text" name="filter" value="${filter}">
+    <input type="text" name="filter" value="${filter!""}">
     <button type="submit">Найти</button>
 </form>
 <#list messages as message>
     <div>
-        <b>${id}</b>
+        <b>${message.id}</b>
         <span>${message.text}</span>
         <i>${message.tag}</i>
         <strong>${message.authorName}</strong>
         <div>
            <#if message.filename??>
-               <img src="/img/${message.filename}">
+               <img width="100px" height="100px" src="/img/${message.filename}">
            </#if>
         </div>
     </div>
