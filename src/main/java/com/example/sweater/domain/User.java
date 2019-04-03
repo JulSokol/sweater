@@ -26,6 +26,9 @@ public class User implements UserDetails {
     @Enumerated(EnumType.STRING)
     private Set<Role> roles;
 
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "author")
+    private Set<Message> messages;
+
     public boolean isAdmin(){
         return roles.contains(Role.ADMIN);
     }
