@@ -32,12 +32,15 @@ public class UserService implements UserDetailsService {
 
     public boolean addUser(User user){
         User userFromDb = userRepo.findByUsername(user.getUsername());
+
         if (userFromDb !=null){
             return false;
         }
+
         user.setActive(true);
         user.setRoles(Collections.singleton(Role.USER));
         user.setActivationCode(UUID.randomUUID().toString());
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
 
         userRepo.save(user);
 
