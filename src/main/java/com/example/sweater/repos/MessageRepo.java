@@ -7,5 +7,6 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface MessageRepo extends CrudRepository<Message, Long> {
 
-  Page<Message> findByTag(String tag, Pageable pageable);
+    Page<Message> findAll(Pageable pageable);
+    Page<Message> findByTag(String tag, Pageable pageable);
 }
